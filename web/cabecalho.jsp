@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: leonardo
@@ -7,6 +8,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<img src="<c:url value="/imagens/caelum.png"/>" />
+<img src="<c:url value="/imgs/logo.png"/>" />
 <h2>Agenda de Contatos do Leonardo</h2>
 <hr />

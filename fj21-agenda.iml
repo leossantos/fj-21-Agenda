@@ -23,5 +23,8 @@
     <orderEntry type="library" name="postgresql-42.2.6" level="project" />
     <orderEntry type="library" name="javax.servlet.jsp.jstl-1.2.5" level="project" />
     <orderEntry type="library" name="jstl-api-1.2" level="project" />
+    <orderEntry type="library" name="displaytag-1.2" level="project" />
+    <orderEntry type="library" name="displaytag-export-poi-1.2" level="project" />
+    <orderEntry type="library" name="displaytag-portlet-1.2" level="project" />
   </component>
 </module>
