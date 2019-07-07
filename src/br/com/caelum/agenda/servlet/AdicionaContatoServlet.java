@@ -3,6 +3,7 @@ package br.com.caelum.agenda.servlet;
 import br.com.caelum.agenda.jdbc.dao.ContatoDao;
 import br.com.caelum.agenda.modelo.Contato;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,20 @@ import java.util.Date;
 
 @WebServlet("/adicionaContato")
 public class AdicionaContatoServlet extends HttpServlet {
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        log("Iniciando a servlet");
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        log("Destruindo a servlet");
+    }
+
+
     @Override
     protected void service(HttpServletRequest request,
                            HttpServletResponse response)
