@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Adcionar Contato</title>
+    <title>Adicionar Contato</title>
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 
     <script src="js/jquery.js"></script>

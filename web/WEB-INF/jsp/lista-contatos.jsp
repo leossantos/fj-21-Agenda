@@ -15,9 +15,9 @@
     <title>Listar Contatos</title>
 </head>
 <body>
-    <c:import url="cabecalho.jsp" />
+    <c:import url="../../cabecalho.jsp" />
     <!-- cria o DAO -->
-    <jsp:useBean id="dao" class="br.com.caelum.agenda.jdbc.dao.ContatoDao"/>
+
     <table>
             <tr>
                 <td>Numero</td>
@@ -27,8 +27,8 @@
                 <td>Data de Nascimento</td>
             </tr>
         <!-- percorre contatos montando as linhas da tabela -->
-        <c:forEach var="contato" items="${dao.lista}" varStatus="id">
-            <tr bgcolor="#${id.count % 2 == 0 ? 'eeeeee' : 'ffffff' }">
+        <c:forEach var="contato" items="${contatos}" varStatus="id">
+            <tr bgcolor="#${id.count % 2 != 0 ? 'eeeeee' : 'ffffff' }">
                 <td>${id.count}</td>
                 <td>${contato.nome}</td>
                 <td>
@@ -44,6 +44,9 @@
                 <td>${contato.endereco}</td>
                 <td><fmt:formatDate value="${contato.dataNascimento.time}"
                                     pattern="dd/MM/yyyy" /></td>
+                <td>
+                    <a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
@@ -52,6 +55,6 @@
 
 
 
-    <c:import url="rodape.jsp" />
+    <c:import url="../../rodape.jsp" />
 </body>
 </html>

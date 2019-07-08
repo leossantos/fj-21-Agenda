@@ -12,6 +12,7 @@ public class ContatoDao {
     private Connection connection;
 
     public ContatoDao() {
+
         this.connection = new ConnectionFactory().getConnection();
     }
 
@@ -66,5 +67,25 @@ public class ContatoDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void exclui(Contato contato) {
+        String sql = "delete from contatos where id = (?)";
+
+        try {
+            // prepared statement para deleção
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            // pegando o id
+            stmt.setLong(1, contato.getId());
+
+            // executa
+            stmt.execute();
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }
