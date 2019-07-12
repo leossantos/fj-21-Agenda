@@ -15,8 +15,7 @@
     <title>Listar Contatos</title>
 </head>
 <body>
-    <c:import url="../../cabecalho.jsp" />
-    <!-- cria o DAO -->
+    <c:import url="suporte/cabecalho.jsp" />
 
     <table>
             <tr>
@@ -42,10 +41,12 @@
                     </c:choose>
                 </td>
                 <td>${contato.endereco}</td>
-                <td><fmt:formatDate value="${contato.dataNascimento.time}"
-                                    pattern="dd/MM/yyyy" /></td>
+                <td><fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy" /></td>
                 <td>
                     <a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
+                </td>
+                <td>
+                    <a href="mvc?logica=BuscaContatoLogic&id=${contato.id}">Alterar</a>
                 </td>
             </tr>
         </c:forEach>
@@ -55,6 +56,6 @@
 
 
 
-    <c:import url="../../rodape.jsp" />
+    <c:import url="suporte/rodape.jsp" />
 </body>
 </html>

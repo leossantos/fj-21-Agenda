@@ -34,11 +34,9 @@ public class AdicionaContatoServlet extends HttpServlet {
 
 
     @Override
-    protected void service(HttpServletRequest request,
-                           HttpServletResponse response)
+    protected void service(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        // busca o writer
-        PrintWriter out = response.getWriter();
+
 
         // buscando os parâmetros no request
         String nome = request.getParameter("nome");
@@ -53,7 +51,7 @@ public class AdicionaContatoServlet extends HttpServlet {
             dataNascimento = Calendar.getInstance();
             dataNascimento.setTime(date);
         } catch (ParseException e) {
-            out.println("Erro de conversão da data");
+            System.out.println("Erro de conversão da data");
             return; //para a execução do método
         }
 
