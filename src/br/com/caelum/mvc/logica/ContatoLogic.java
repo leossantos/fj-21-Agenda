@@ -5,6 +5,7 @@ import br.com.caelum.agenda.modelo.Contato;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
 
 public class ContatoLogic implements Logica{
     @Override
@@ -18,7 +19,10 @@ public class ContatoLogic implements Logica{
             Contato contato = new Contato();
             contato.setId(id);
 
-            ContatoDao dao = new ContatoDao();
+            // busca a conexão pendurada na requisição
+            Connection connection = (Connection) req.getAttribute("conexao");
+            // passe a conexão no construtor
+            ContatoDao dao = new ContatoDao(connection);
             System.out.println("Buscando Contato");
             contato = dao.busca(contato);
             req.setAttribute("contato", contato);

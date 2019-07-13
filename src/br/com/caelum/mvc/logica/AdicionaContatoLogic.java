@@ -5,6 +5,7 @@ import br.com.caelum.agenda.modelo.Contato;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -40,7 +41,10 @@ public class AdicionaContatoLogic implements Logica{
         contato.setDataNascimento(dataNascimento);
 
         // salva o contato
-        ContatoDao dao = new ContatoDao();
+        // busca a conexão pendurada na requisição
+        Connection connection = (Connection) req.getAttribute("conexao");
+        // passe a conexão no construtor
+        ContatoDao dao = new ContatoDao(connection);
         dao.adiciona(contato);
 
         return "mvc?logica=ListaContatosLogic";
